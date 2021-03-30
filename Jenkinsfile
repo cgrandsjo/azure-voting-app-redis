@@ -61,10 +61,18 @@ pipeline {
                 }
             }
         }
-
-        stage('Run Trivy') {
-            steps {
-                sh "trivy christiangrandsjo/jenkins-course"
+        stage('Container Scanning') {
+            parallel {
+                stage('Run Trivy') {
+                    steps {
+                        sh "trivy christiangrandsjo/jenkins-course"
+                    }
+                }
+                stage('Run Anchore') {
+                    steps {
+                        sh "echo 'Just typing this text'"
+                    }
+                }
             }
         }
     }
