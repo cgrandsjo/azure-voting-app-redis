@@ -61,5 +61,11 @@ pipeline {
                 }
             }
         }
+
+        stage('Run Trivy') {
+            steps {
+                sh "trivy christiangrandsjo/jenkins-course"
+            }
+        }
     }
 }
