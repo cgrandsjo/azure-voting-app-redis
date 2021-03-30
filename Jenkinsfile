@@ -23,6 +23,7 @@ pipeline {
             steps {
                 sh """
                     docker-compose up -d
+                    ./scripts/test_container.sh
                 """
             }
             post {
