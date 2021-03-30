@@ -9,7 +9,7 @@ pipeline {
         }
         stage('Docker Build') {
             steps {
-                sh 'docker images -a')
+                sh 'docker images -a'
                 sh """
                     cd azure-vote/
                     docker images -a
@@ -17,7 +17,7 @@ pipeline {
                     docker images -a
                     cd ..
                 """
-                }
+            }
         }
         stage('Start test app') {
             steps {
@@ -33,7 +33,7 @@ pipeline {
                     echo "App failed to start :("
                 }
             }
-
+        }
         stage('Run Tests') {
             steps {
                 sh """
@@ -41,7 +41,6 @@ pipeline {
                 """
             }
         }
-
         stage('Stop test app') {
             steps {
                 sh """
